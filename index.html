@@ -20,7 +20,7 @@
 
             <header>
 
-                <h1 class="site__title">This is the H1</h1>
+                <h1 class="site__title">Student Roster</h1>
 
             </header>
 
@@ -28,11 +28,27 @@
 
                 <article class="main__article">
 
-                    <h2 class="main__title">Student List</h2>
+                    <div ng-show="students.length">
+
+                            <h2 class="main__title">Search Students</h2>
+                            <form class="main__form" role="form">
+
+                                    <input ng-model="query" type="text" class="form__input" placeholder="Search">
+
+                            </form>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="main__title" ng-show="students.length && filtered.length">Student List</h2>
+                            <h2 class="main__title" ng-show="students.length && !filtered.length">No Matches</h2>
+
+                    <!-- <h2 class="main__title">Student List</h2> -->
                     <ul>
-                        <li ng-repeat="item in students">
-                            <span ng-click="editing = true" ng-hide="editing">
-                                {{item.name}} <a ng-click="deleteStudent(item)">Delete</a>
+                        <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query )">
+                            <span ng-click="editing = true" ng-hide="editing" class="main__result">
+                                {{item.name}} <a ng-click="deleteStudent(item)" class="delete__btn" >delete</a>
                             </span>
                             <span ng-show="editing" ng-submit="editing = false">
                                 <form class="main__form" role="form">
