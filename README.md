@@ -1,6 +1,6 @@
 # _Student Roster_
-## _, 9/20/2015_
-### By Charles Moss
+## _List of students with edit functionality, 9/20/2015_
+### By Charles Moss and Casey Heitz
 ## Description
 _._
 
@@ -15,7 +15,7 @@ _Clone and open index.html in your browser. To view the Mocha/Chai tests open sp
 _This project makes use of: [Mocha](https://mochajs.org/), and [Chai](http://chaijs.com/) as testing-frameworks. And has a dependency for jQuery._
 
 ### Legal
-Copyright (c) 2015 Charles A Moss
+Copyright (c) 2015 Charles A Moss and Casey Heitz
 
 This software is licensed under the MIT license.
 
