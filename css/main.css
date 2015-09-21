@@ -92,7 +92,7 @@ aside {
 .main__result {
     font-size: 1.5rem;
     color: #000;
-    
+
 }
 .main__result p:before {
     content: ">> ";
@@ -192,6 +192,17 @@ aside h2 {
 
 .delete__btn:hover:after {
     content: " x";
+}
+
+.grad__btn {
+    color: #2f9d2f;
+    padding-left: 1em;
+    font-size: .5em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.grad__btn:hover:after {
+    content: " √";
 }
 
 /* ================== picture gallery */

@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html ng-app="studentRoster">
-    <head>
-        <meta charset="utf-8">
-        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
-        <title>Student Bodies</title>
-        <script src="lib/angular.js"></script>
-        <script src="app.js"></script>
-        <script src="js/StudentsController.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
-        <meta content="width=device-width" name="viewport">
-<!-- <link href="favicon.ico" rel="icon"> -->
-        <link href="css/main.css" rel="stylesheet">
+    <title>Student Bodies</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="js/StudentsController.js"></script>
 
-    </head>
-    <body>
+    <meta content="width=device-width" name="viewport">
+    <!-- <link href="favicon.ico" rel="icon"> -->
+    <link href="css/main.css" rel="stylesheet">
 
-        <div class="wrapper">
+</head>
 
-            <header>
+<body>
 
-                <h1 class="site__title">Student Roster</h1>
+    <div class="wrapper">
 
-            </header>
+        <header>
 
-            <section class="main group" ng-controller="StudentsCtrl">
+            <h1 class="site__title">Student Roster</h1>
 
-                <article class="main__article">
+        </header>
 
-                    <div ng-show="students.length">
+        <section class="main group" ng-controller="StudentsCtrl">
 
-                            <h2 class="main__title">Search Students</h2>
-                            <form class="main__form" role="form">
+            <article class="main__article">
 
-                                    <input ng-model="query" type="text" class="form__input" placeholder="Search">
+                <div ng-show="students.length">
 
-                            </form>
+                    <h2 class="main__title">Search Students</h2>
+                    <form class="main__form" role="form">
 
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="main__title" ng-show="students.length && filtered.length">Student List</h2>
-                            <h2 class="main__title" ng-show="students.length && !filtered.length">No Matches</h2>
-
-                    <!-- <h2 class="main__title">Student List</h2> -->
-                    <ul>
-                        <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query )">
-                            <span ng-click="editing = true" ng-hide="editing" class="main__result">
-                                {{item.name}} <a ng-click="deleteStudent(item)" class="delete__btn" >delete</a>
-                            </span>
-                            <span ng-show="editing" ng-submit="editing = false">
-                                <form class="main__form" role="form">
-                                    <input type="text" class="form__input"  ng-model="item.name" placeholder="Name" required/>
-                                    <button class="form__btn" type="submit">Save</button>
-                                </form>
-                            </span>
-                        </li>
-                    </ul>
-
-                </article>
-
-                <aside class="">
-
-                    <h2>New Student</h2>
-                    <form ng-submit="addStudent()" class="main__form" role="form">
-
-                        <input type="text" ng-model="studentName" class="form__input" placeholder="Enter name">
-                        <button class="form__btn" type="submit">Submit</button>
+                        <input ng-model="query" type="text" class="form__input" placeholder="Search">
 
                     </form>
 
-                </aside>
-            </section>
+                </div>
 
-        </div><!-- end of wrapper -->
 
-        <footer class="site__footer">
-            <div class="footer__content">
+                <h2 class="main__title" ng-show="students.length && filtered.length">Student List</h2>
+                <h2 class="main__title" ng-show="students.length && !filtered.length">No Matches</h2>
 
-                <p>Copyright 2015 - fork me on
-                    <a href="#">Github</a>
-                </p>
+                <ul>
+                    <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query )">
+                        <span ng-click="editing = true" ng-hide="editing" class="main__result">
+                            {{item.name}} <a ng-click="graduateStudent(item)" class="grad__btn">graduate</a> <a ng-click="deleteStudent(item)" class="delete__btn">delete</a> 
+                        </span>
+                        <span ng-show="editing" ng-submit="editing = false">
+                            <form class="main__form" role="form">
+                                <input type="text" class="form__input" ng-model="item.name" placeholder="Name" required/>
+                                <button class="form__btn" type="submit">Save</button>
+                            </form>
+                        </span>
+                    </li>
+                </ul>
 
-            </div>
-        </footer>
+            </article>
 
-<!-- <script src="js/jquery.min.js"></script> -->
-        <!-- // <script src="js/main.js"></script>
+            <aside class="">
+
+                <h2>New Student</h2>
+                <form ng-submit="addStudent()" class="main__form" role="form">
+
+                    <input type="text" ng-model="studentName" class="form__input" placeholder="Enter name">
+                    <button class="form__btn" type="submit">Submit</button>
+
+                </form>
+
+                <div ng-show="grads.length">
+                    <h2>Graduated Students</h2>
+
+                    <ul>
+                        <li ng-repeat="item in grads | orderBy:'name'">
+                                {{item.name}}
+                        </li>
+                    </ul>
+
+                </div>
+
+            </aside>
+        </section>
+
+    </div>
+    <!-- end of wrapper -->
+
+    <footer class="site__footer">
+        <div class="footer__content">
+
+            <p>Copyright 2015 - fork me on
+                <a href="#">Github</a>
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <!-- // <script src="js/main.js"></script>
         // <script type="text/javascript"></script> -->
-    </body>
+</body>
 
 </html>

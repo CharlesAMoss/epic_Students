@@ -1,13 +1,21 @@
 studentRoster.controller('StudentsCtrl', function StudentsCtrl($scope) {
-  $scope.students = [];
-  $scope.addStudent = function() {
-    $scope.students.push({ name: $scope.studentName });
-    $scope.studentName = null;
-  };
+    $scope.students = [];
+    $scope.grads = [];
+    $scope.addStudent = function() {
+        $scope.students.push({
+            name: $scope.studentName
+        });
+        $scope.studentName = null;
+    };
 
-$scope.deleteStudent = function(student) {
-  var index = $scope.students.indexOf(student);
-  $scope.students.splice(index, 1);
-};
+    $scope.deleteStudent = function(student) {
+        var index = $scope.students.indexOf(student);
+        $scope.students.splice(index, 1);
+    };
+
+    $scope.graduateStudent = function(student) {
+        $scope.grads.push(student);
+        $scope.deleteStudent(student);
+    };
 
 });
