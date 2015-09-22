@@ -8,7 +8,8 @@
     <title>Student Bodies</title>
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
-    <script src="js/StudentsController.js"></script>
+    <script src="controllers/StudentsController.js"></script>
+    <script src="controllers/FieldTripsController.js"></script>
 
     <meta content="width=device-width" name="viewport">
     <!-- <link href="favicon.ico" rel="icon"> -->
@@ -48,7 +49,9 @@
                 <ul>
                     <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query )">
                         <span ng-click="editing = true" ng-hide="editing" class="main__result">
-                            {{item.name}} <a ng-click="graduateStudent(item)" class="grad__btn">graduate</a> <a ng-click="deleteStudent(item)" class="delete__btn">delete</a> 
+                            {{item.name}}
+                            <!-- <a ng-click="graduateStudent(item)" class="grad__btn">graduate</a>  -->
+                            <a ng-click="StudentsFactory.deleteStudent(item)" class="delete__btn">delete</a>
                         </span>
                         <span ng-show="editing" ng-submit="editing = false">
                             <form class="main__form" role="form">
@@ -64,14 +67,24 @@
             <aside class="">
 
                 <h2>New Student</h2>
-                <form ng-submit="addStudent()" class="main__form" role="form">
+                <form ng-submit="StudentsFactory.addStudent()" class="main__form" role="form">
 
-                    <input type="text" ng-model="studentName" class="form__input" placeholder="Enter name">
+                    <input type="text" ng-model="StudentsFactory.studentName" class="form__input" placeholder="Enter name">
                     <button class="form__btn" type="submit">Submit</button>
 
                 </form>
 
-                <div ng-show="grads.length">
+
+                <!-- <div class="permission" ng-controller="FieldTripsCtrl">
+                    <h2>Permission Slips</h2>
+                    <ul>
+                        <li ng-repeat="item in studentsWithPermission">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div> -->
+
+                <!-- <div ng-show="grads.length">
                     <h2>Graduated Students</h2>
 
                     <ul>
@@ -80,13 +93,21 @@
                         </li>
                     </ul>
 
-                </div>
+                </div> -->
 
             </aside>
         </section>
 
-    </div>
-    <!-- end of wrapper -->
+        <div class="permission" ng-controller="FieldTripsCtrl">
+            <h2>Permission Slips</h2>
+            <ul>
+                <li ng-repeat="item in studentsWithPermission">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+
+    </div><!-- end of wrapper -->
 
     <footer class="site__footer">
         <div class="footer__content">

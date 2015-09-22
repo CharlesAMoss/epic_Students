@@ -15,7 +15,7 @@ body {
 
 /* layout =================== */
 
-.site__title, nav, section, .footer__content {
+.site__title, nav, section, .footer__content, .permission {
     display: block;
     margin-left: 20%;
     margin-right: 20%;
@@ -112,6 +112,18 @@ aside {
 }
 
 aside h2 {
+    color: #7e8e97;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    margin-bottom: .05em;
+}
+
+
+.permission {
+
+}
+
+.permission h2 {
     color: #7e8e97;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 200;
