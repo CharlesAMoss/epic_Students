@@ -1,21 +1,17 @@
 # _Student Roster_
-## _List of students with edit functionality, 9/20/2015_
-### By Charles Moss and Casey Heitz
+## _List of students with edit functionality and sub-list functionality (Permission Slip), 9/20/2015_
+### By Charles Moss, Casey Heitz, and Kyle Pratuch
 ## Description
-_._
-
-## Demo
-
-_View a demo on [Codepen]()._
+_Enter a students name, they will be added to the roster. You can edit name, remove from the roster and search list. Students can be sorted into two lists based on if the student has permission or not._
 
 ## Setup
-_Clone and open index.html in your browser. To view the Mocha/Chai tests open spec-runner.html in your browser._  
+_Clone and open index.html in your browser._  
 
 ## Technologies Used
-_This project makes use of: [Mocha](https://mochajs.org/), and [Chai](http://chaijs.com/) as testing-frameworks. And has a dependency for jQuery._
+_This project makes use of: AngularJS_
 
 ### Legal
-Copyright (c) 2015 Charles A Moss and Casey Heitz
+Copyright (c) 2015 Charles A Moss, Casey Heitz, Kyle Pratuch
 
 This software is licensed under the MIT license.
 
